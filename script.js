@@ -5,6 +5,7 @@ let pixelWidth = 16;
 generateGrid();
 
 const PIXEL_CONTROL = document.querySelector("#control-pixel");
+PIXEL_CONTROL.value = pixelWidth;
 
 PIXEL_CONTROL.addEventListener("change", e => {
     if (PIXEL_CONTROL.value >= 10 && PIXEL_CONTROL.value <= 100)
@@ -22,8 +23,10 @@ function generateGrid(){
         for (let j = 0; j < pixelWidth; j++){
             const PIXEL = document.createElement("div");
             PIXEL.classList.add('pixel');
-            PIXEL.style.width = `${DISPLAY_WIDTH/pixelWidth}px`;
-            PIXEL.style.height = `${DISPLAY_WIDTH/pixelWidth}px`;
+            let pixelDimension = (Math.floor((DISPLAY_WIDTH/pixelWidth) * 100) / 100); //Leave it at two decimals
+            console.log(pixelDimension);
+            PIXEL.style.width = `${pixelDimension}px`;
+            PIXEL.style.height = `${pixelDimension}px`;
             DISPLAY.appendChild(PIXEL);
         }
     }
