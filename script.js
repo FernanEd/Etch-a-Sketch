@@ -6,8 +6,6 @@ generateGrid();
 
 const PIXEL_CONTROL = document.querySelector("#control-pixel");
 
-
-
 PIXEL_CONTROL.addEventListener("change", e => {
     if (PIXEL_CONTROL.value >= 10 && PIXEL_CONTROL.value <= 100)
     {
@@ -60,13 +58,13 @@ function selectControl(){
     //Update control variable
     switch(this.id){
         case 'control-pen':
-            selectControl = 0;
+            selectedControl = 0;
             break;
         case 'control-color':
-            selectControl = 1;
+            selectedControl = 1;
             break;
         case 'control-rainbow':
-            selectControl = 2;
+            selectedControl = 2;
             break;
     }
 }
@@ -86,8 +84,29 @@ function coloring(){
     const PIXELS = document.querySelectorAll('.pixel');
 
     PIXELS.forEach(pixel => {
+        let pixelOpacity = 0;
         pixel.addEventListener("mouseover", e => {
-            pixel.style.backgroundColor = "red";
+            switch(selectedControl){
+                //Pen
+                case 0:
+                    pixelOpacity += 0.10;
+                    pixel.style.backgroundColor = "black";
+                    pixel.style.opacity = `${pixelOpacity}`;
+                    break;
+                //Color
+                case 1:
+                    pixel.style.backgroundColor = "blue";
+                    pixel.style.opacity = '1';
+                    break;
+                //Rainbow
+                case 2:
+                    let rainbowColors = ['#262949', '#045459', '#087353', '#15C286', '#ABD96D', '#FBBF54', '#EE6B3B', '#EC0F47', '#A02C5D', '#700460', '#022C7A'];
+                    let randomIndex = Math.floor(Math.random() * rainbowColors.length); 
+
+                    pixel.style.backgroundColor = rainbowColors[randomIndex];
+                    pixel.style.opacity = '1';
+                    break;
+            }
         })
     })
 }
