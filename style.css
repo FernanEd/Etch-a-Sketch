@@ -14,11 +14,12 @@ body{
     margin: 0;
     font-family: 'Roboto', sans-serif;
     color: var(--darker);
+    text-align: center;
 }
 
 #display{
     margin: auto;
-    border: var(--pixelWidth) solid var(--primary);
+    border: 30px solid var(--primary);
     display: flex;
     flex-wrap: wrap;
     max-width: var(--displayWidth);
@@ -27,7 +28,7 @@ body{
 
 .pixel{
     width: var(--pixelWidth); height: var(--pixelWidth);
-    box-shadow: 0px 0px 1px 0px var(--dark);
+    box-shadow: 0px 0px 1px 1px var(--secondary);
     box-sizing: border-box;
 }
 
@@ -79,7 +80,7 @@ body{
     border-radius: 10%;
 }
 
-#pixelInput:focus{
+#pixelInput:hover , #pixelInput:focus{
     color: var(--primary);
     cursor: pointer;
     box-shadow: 0 2px 10px 2px gray;
@@ -87,7 +88,6 @@ body{
 
 
 @keyframes rainbow{
-    0%{ color:#1A1333;}
     9%{ color:#262949;}
     18%{ color:#045459;}
     27%{ color:#087353;}
@@ -103,12 +103,8 @@ body{
 
 #control-rainbow svg{
     animation-name: rainbow;
-    animation-duration: 1.5s;
+    animation-duration: 1.25s;
     animation-iteration-count: infinite;
-}
-
-#copyright{
-    text-align: center;
 }
 
 #copyright a{

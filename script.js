@@ -12,8 +12,6 @@ for(let i = 0; i < pixelWidth; i++){
 }
 
 
-
-
 const PEN_CONTROL = document.querySelector("#control-pen");
 
 const PENCIL_CONTROL = document.querySelector("#control-pencil");
