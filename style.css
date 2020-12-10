@@ -40,6 +40,32 @@ body{
     margin: 50px 0px 20px 0px;
 }
 
+#control-color{
+    color: var(--primary);
+}
+
+
+@keyframes rainbow{
+    9%{ color:#262949;}
+    18%{ color:#045459;}
+    27%{ color:#087353;}
+    36%{ color:#15C286;}
+    45%{ color:#ABD96D;}
+    54%{ color:#FBBF54;}
+    63%{ color:#EE6B3B;}
+    72%{ color:#EC0F47;}
+    81%{ color:#A02C5D;}
+    91%{ color:#700460;}
+    100%{ color:#022C7A;}
+}
+
+#control-rainbow svg{
+    animation-name: rainbow;
+    animation-duration: 1.25s;
+    animation-iteration-count: infinite;
+}
+
+
 #controls .btn{
     margin: 0px 10px;
 }
@@ -66,11 +92,11 @@ body{
 }
 
 .selected{
-    background-color: #f3b54a;
-    color: white;
+    border: 5px solid #f3b54a;
+    box-sizing: border-box;
 }
 
-#pixelInput{
+#control-pixel{
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 35px;
@@ -80,32 +106,12 @@ body{
     border-radius: 10%;
 }
 
-#pixelInput:hover , #pixelInput:focus{
+#control-pixel:hover , #control-pixel:focus{
     color: var(--primary);
     cursor: pointer;
     box-shadow: 0 2px 10px 2px gray;
 }
 
-
-@keyframes rainbow{
-    9%{ color:#262949;}
-    18%{ color:#045459;}
-    27%{ color:#087353;}
-    36%{ color:#15C286;}
-    45%{ color:#ABD96D;}
-    54%{ color:#FBBF54;}
-    63%{ color:#EE6B3B;}
-    72%{ color:#EC0F47;}
-    81%{ color:#A02C5D;}
-    91%{ color:#700460;}
-    100%{ color:#022C7A;}
-}
-
-#control-rainbow svg{
-    animation-name: rainbow;
-    animation-duration: 1.25s;
-    animation-iteration-count: infinite;
-}
 
 #copyright a{
     text-decoration: none;
@@ -115,3 +121,4 @@ body{
 #copyright a:hover{
     color: var(--primary);
 }
+
