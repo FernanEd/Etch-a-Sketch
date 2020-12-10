@@ -40,11 +40,6 @@ body{
     margin: 50px 0px 20px 0px;
 }
 
-#control-color{
-    color: var(--primary);
-}
-
-
 @keyframes rainbow{
     9%{ color:#262949;}
     18%{ color:#045459;}

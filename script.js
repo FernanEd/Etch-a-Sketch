@@ -30,7 +30,6 @@ function generateGrid(){
 
     //Make coloring work
     coloring();
-
 }
 
 // CONTROLS
@@ -78,6 +77,26 @@ function deselectOthers(){
     })
 }
 
+// COLOR PICKER
+let pencilColor = "#F3B54A";
+const COLOR_PICKER = document.querySelector("#color-picker");
+//Color pencil icon
+PENCIL_CONTROL.style.color = pencilColor;
+//Make default color picker the primary color
+COLOR_PICKER.value = pencilColor;
+
+//Open color picker on click
+PENCIL_CONTROL.addEventListener("click", e => {
+    COLOR_PICKER.focus();
+    COLOR_PICKER.click();
+})
+
+//While changing color, update the color picked
+COLOR_PICKER.addEventListener("input", e => {
+    pencilColor = COLOR_PICKER.value;
+    //Update pencil icon color;
+    PENCIL_CONTROL.style.color = COLOR_PICKER.value;
+})
 
 // COLORING
 function coloring(){
@@ -89,13 +108,13 @@ function coloring(){
             switch(selectedControl){
                 //Pen
                 case 0:
-                    pixelOpacity += 0.10;
+                    pixelOpacity += 0.20;
                     pixel.style.backgroundColor = "black";
                     pixel.style.opacity = `${pixelOpacity}`;
                     break;
                 //Color
                 case 1:
-                    pixel.style.backgroundColor = "blue";
+                    pixel.style.backgroundColor = pencilColor;
                     pixel.style.opacity = '1';
                     break;
                 //Rainbow
@@ -104,7 +123,7 @@ function coloring(){
                     let randomIndex = Math.floor(Math.random() * rainbowColors.length); 
 
                     pixel.style.backgroundColor = rainbowColors[randomIndex];
-                    pixel.style.opacity = '1';
+                    pixel.style.opacity = `${Math.random() + 0.2}`;
                     break;
             }
         })
